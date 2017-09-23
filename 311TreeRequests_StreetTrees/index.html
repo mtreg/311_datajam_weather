@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/DeadDamagedTree311RequestsperStreetTree0.js"></script>
+        <script src="data/StreetTreesperCommunityDistrict1.js"></script>
+        <script src="data/DeadDamagedTree311Requests2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[40.5150247059,-74.4334979693],[40.895110625,-73.5204098099]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_DeadDamagedTree311RequestsperStreetTree0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>damagedtrees</strong><br />' + (feature.properties['damagedtrees'] !== null ? Autolinker.link(String(feature.properties['damagedtrees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>streetree_count</strong><br />' + (feature.properties['streetree_count'] !== null ? Autolinker.link(String(feature.properties['streetree_count'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>treecalls_streetree</strong><br />' + (feature.properties['treecalls_streetree'] !== null ? Autolinker.link(String(feature.properties['treecalls_streetree'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>borocd</strong><br />' + (feature.properties['borocd'] !== null ? Autolinker.link(String(feature.properties['borocd'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_DeadDamagedTree311RequestsperStreetTree0_0(feature) {
+            if (feature.properties['treecalls_streetree'] >= 0.002558 && feature.properties['treecalls_streetree'] <= 0.247760 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311RequestsperStreetTree0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
+            }
+            }
+            if (feature.properties['treecalls_streetree'] >= 0.247760 && feature.properties['treecalls_streetree'] <= 0.492963 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311RequestsperStreetTree0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(200,221,240,1.0)',
+            }
+            }
+            if (feature.properties['treecalls_streetree'] >= 0.492963 && feature.properties['treecalls_streetree'] <= 0.738166 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311RequestsperStreetTree0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(115,179,216,1.0)',
+            }
+            }
+            if (feature.properties['treecalls_streetree'] >= 0.738166 && feature.properties['treecalls_streetree'] <= 0.983400 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311RequestsperStreetTree0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(40,121,185,1.0)',
+            }
+            }
+            if (feature.properties['treecalls_streetree'] >= 0.983400 && feature.properties['treecalls_streetree'] <= 1.000000 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311RequestsperStreetTree0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_DeadDamagedTree311RequestsperStreetTree0');
+        map.getPane('pane_DeadDamagedTree311RequestsperStreetTree0').style.zIndex = 400;
+        map.getPane('pane_DeadDamagedTree311RequestsperStreetTree0').style['mix-blend-mode'] = 'normal';
+    var layer_DeadDamagedTree311RequestsperStreetTree0 = new L.geoJson(json_DeadDamagedTree311RequestsperStreetTree0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_DeadDamagedTree311RequestsperStreetTree0',
+        onEachFeature: pop_DeadDamagedTree311RequestsperStreetTree0,
+        style: style_DeadDamagedTree311RequestsperStreetTree0_0,
+    });
+        bounds_group.addLayer(layer_DeadDamagedTree311RequestsperStreetTree0);
+        map.addLayer(layer_DeadDamagedTree311RequestsperStreetTree0);
+        function pop_StreetTreesperCommunityDistrict1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>damagedtrees</strong><br />' + (feature.properties['damagedtrees'] !== null ? Autolinker.link(String(feature.properties['damagedtrees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>streetree_count</strong><br />' + (feature.properties['streetree_count'] !== null ? Autolinker.link(String(feature.properties['streetree_count'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>borocd</strong><br />' + (feature.properties['borocd'] !== null ? Autolinker.link(String(feature.properties['borocd'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_StreetTreesperCommunityDistrict1_0(feature) {
+            if (feature.properties['streetree_count'] >= 4.000000 && feature.properties['streetree_count'] <= 10790.000000 ) {
+                return {
+                pane: 'pane_StreetTreesperCommunityDistrict1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,204,1.0)',
+            }
+            }
+            if (feature.properties['streetree_count'] >= 10790.000000 && feature.properties['streetree_count'] <= 21576.000000 ) {
+                return {
+                pane: 'pane_StreetTreesperCommunityDistrict1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(194,230,153,1.0)',
+            }
+            }
+            if (feature.properties['streetree_count'] >= 21576.000000 && feature.properties['streetree_count'] <= 32362.000000 ) {
+                return {
+                pane: 'pane_StreetTreesperCommunityDistrict1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(120,198,121,1.0)',
+            }
+            }
+            if (feature.properties['streetree_count'] >= 32362.000000 && feature.properties['streetree_count'] <= 43148.000000 ) {
+                return {
+                pane: 'pane_StreetTreesperCommunityDistrict1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(49,163,84,1.0)',
+            }
+            }
+            if (feature.properties['streetree_count'] >= 43148.000000 && feature.properties['streetree_count'] <= 53934.000000 ) {
+                return {
+                pane: 'pane_StreetTreesperCommunityDistrict1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,104,55,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_StreetTreesperCommunityDistrict1');
+        map.getPane('pane_StreetTreesperCommunityDistrict1').style.zIndex = 401;
+        map.getPane('pane_StreetTreesperCommunityDistrict1').style['mix-blend-mode'] = 'normal';
+    var layer_StreetTreesperCommunityDistrict1 = new L.geoJson(json_StreetTreesperCommunityDistrict1, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_StreetTreesperCommunityDistrict1',
+        onEachFeature: pop_StreetTreesperCommunityDistrict1,
+        style: style_StreetTreesperCommunityDistrict1_0,
+    });
+        bounds_group.addLayer(layer_StreetTreesperCommunityDistrict1);
+        map.addLayer(layer_StreetTreesperCommunityDistrict1);
+        function pop_DeadDamagedTree311Requests2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>damagedtrees</strong><br />' + (feature.properties['damagedtrees'] !== null ? Autolinker.link(String(feature.properties['damagedtrees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>streetree_count</strong><br />' + (feature.properties['streetree_count'] !== null ? Autolinker.link(String(feature.properties['streetree_count'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>borocd</strong><br />' + (feature.properties['borocd'] !== null ? Autolinker.link(String(feature.properties['borocd'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_DeadDamagedTree311Requests2_0(feature) {
+            if (feature.properties['damagedtrees'] >= 1.000000 && feature.properties['damagedtrees'] <= 3199.000000 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311Requests2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,235,1.0)',
+            }
+            }
+            if (feature.properties['damagedtrees'] >= 3199.000000 && feature.properties['damagedtrees'] <= 6397.000000 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311Requests2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(254,210,166,1.0)',
+            }
+            }
+            if (feature.properties['damagedtrees'] >= 6397.000000 && feature.properties['damagedtrees'] <= 9595.000000 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311Requests2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(253,146,67,1.0)',
+            }
+            }
+            if (feature.properties['damagedtrees'] >= 9595.000000 && feature.properties['damagedtrees'] <= 12793.000000 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311Requests2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(223,79,5,1.0)',
+            }
+            }
+            if (feature.properties['damagedtrees'] >= 12793.000000 && feature.properties['damagedtrees'] <= 15991.000000 ) {
+                return {
+                pane: 'pane_DeadDamagedTree311Requests2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,39,4,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_DeadDamagedTree311Requests2');
+        map.getPane('pane_DeadDamagedTree311Requests2').style.zIndex = 402;
+        map.getPane('pane_DeadDamagedTree311Requests2').style['mix-blend-mode'] = 'normal';
+    var layer_DeadDamagedTree311Requests2 = new L.geoJson(json_DeadDamagedTree311Requests2, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_DeadDamagedTree311Requests2',
+        onEachFeature: pop_DeadDamagedTree311Requests2,
+        style: style_DeadDamagedTree311Requests2_0,
+    });
+        bounds_group.addLayer(layer_DeadDamagedTree311Requests2);
+        map.addLayer(layer_DeadDamagedTree311Requests2);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Dead/Damaged Tree 311 Requests<br /><table><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311Requests2_131990.png" /></td><td> 1 - 3199 </td></tr><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311Requests2_319963971.png" /></td><td> 3199 - 6397 </td></tr><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311Requests2_639795952.png" /></td><td> 6397 - 9595 </td></tr><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311Requests2_9595127933.png" /></td><td> 9595 - 12793 </td></tr><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311Requests2_12793159914.png" /></td><td> 12793 - 15991 </td></tr></table>': layer_DeadDamagedTree311Requests2,'Street Trees per Community District<br /><table><tr><td style="text-align: center;"><img src="legend/StreetTreesperCommunityDistrict1_4107900.png" /></td><td> 4 - 10790 </td></tr><tr><td style="text-align: center;"><img src="legend/StreetTreesperCommunityDistrict1_10790215761.png" /></td><td> 10790 - 21576 </td></tr><tr><td style="text-align: center;"><img src="legend/StreetTreesperCommunityDistrict1_21576323622.png" /></td><td> 21576 - 32362 </td></tr><tr><td style="text-align: center;"><img src="legend/StreetTreesperCommunityDistrict1_32362431483.png" /></td><td> 32362 - 43148 </td></tr><tr><td style="text-align: center;"><img src="legend/StreetTreesperCommunityDistrict1_43148539344.png" /></td><td> 43148 - 53934 </td></tr></table>': layer_StreetTreesperCommunityDistrict1,'Dead/Damaged Tree 311 Requests per Street Tree<br /><table><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311RequestsperStreetTree0_00026024780.png" /></td><td> 0.0026 - 0.2478 </td></tr><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311RequestsperStreetTree0_02478049301.png" /></td><td> 0.2478 - 0.4930 </td></tr><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311RequestsperStreetTree0_04930073822.png" /></td><td> 0.4930 - 0.7382 </td></tr><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311RequestsperStreetTree0_07382098343.png" /></td><td> 0.7382 - 0.9834 </td></tr><tr><td style="text-align: center;"><img src="legend/DeadDamagedTree311RequestsperStreetTree0_0983414.png" /></td><td> 0.9834 - 1</td></tr></table>': layer_DeadDamagedTree311RequestsperStreetTree0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
